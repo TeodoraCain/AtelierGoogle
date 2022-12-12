@@ -6,7 +6,7 @@ public class Library {
     private ArrayList<Book> libraryCollection;
 
     public Library() {
-        this.libraryCollection = new ArrayList<Book>();
+        this.libraryCollection = new ArrayList<>();
     }
 
     public Library(ArrayList<Book> libraryCollection) {
@@ -44,13 +44,13 @@ public class Library {
     }
 
     public void listBooks() {
-        libraryCollection.forEach((book) -> System.out.println(book));
+        libraryCollection.forEach(System.out::println);
     }
 
     public void listBooksByAuthor(String author) {
-        for (int i = 0; i < libraryCollection.size(); i++) {
-            if (libraryCollection.get(i).getAuthor().equalsIgnoreCase(author)) {
-                System.out.println(libraryCollection.get(i));
+        for (Book book : libraryCollection) {
+            if (book.getAuthor().equalsIgnoreCase(author)) {
+                System.out.println(book);
             }
         }
 
