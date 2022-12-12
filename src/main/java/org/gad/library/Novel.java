@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Novel extends Book {
     private String type;
-    private ArrayList<String> presetTypes = new ArrayList<String>();
 
     public Novel(String name, String author, int numberOfPages, String type) {
         super(name, author, numberOfPages);
@@ -16,7 +15,6 @@ public class Novel extends Book {
     }
 
     public void setType(String type) {
-
         this.type = type;
     }
 
