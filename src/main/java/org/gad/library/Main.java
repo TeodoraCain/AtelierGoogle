@@ -1,6 +1,5 @@
 package org.gad.library;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -13,13 +12,16 @@ public class Main {
 
         do {
             System.out.println(
-                    "You are trying to add a book to the library.\n" +
-                            "Is this book a novel, an art album or another?\n\n" +
-                            "Please make your selection:\n" +
-                            " n : for novel \n" +
-                            " a : for art album \n" +
-                            " o : for others.\n\n" +
-                            "Your choice: ");
+                    """
+                            You are trying to add a book to the library.
+                            Is this book a novel, an art album or another?
+
+                            Please make your selection:
+                             n : for novel\s
+                             a : for art album\s
+                             o : for others.
+
+                            Your choice:\s""");
             typeOfBook = scanner.next();
 
         } while (!typeOfBook.equalsIgnoreCase("n") &&
@@ -27,9 +29,11 @@ public class Main {
                 !typeOfBook.equalsIgnoreCase("o"));
 
         System.out.println(
-                "You are trying to add a book to the library.\n" +
-                        "Please insert the following details and press Enter.\n\n" +
-                        "Name of book: ");
+                """
+                        You are trying to add a book to the library.
+                        Please insert the following details and press Enter.
+
+                        Name of book:\s""");
         nameOfBook = scanner.next();
 
         System.out.println("Author:");
@@ -82,11 +86,13 @@ public class Main {
         String listOption;
         do {
             System.out.println(
-                    "You are trying to list books to the library.\n" +
-                            "Choose one of the following options: \n\n" +
-                            " 1 : list all books from the library \n" +
-                            " 2 : list all books from an author \n" +
-                            "Your choice: ");
+                    """
+                            You are trying to list books to the library.
+                            Choose one of the following options:\s
+
+                             1 : list all books from the library\s
+                             2 : list all books from an author\s
+                            Your choice:\s""");
             listOption = scanner.next();
 
         } while (!listOption.equalsIgnoreCase("1") &&
@@ -109,26 +115,22 @@ public class Main {
         Library library = new Library();
 
         do {
-            System.out.println("Main Menu. Choose an action.\n\n Press: " +
-                    "\n 1 : to add a book to the library" +
-                    "\n 2 : to delete a book from the library" +
-                    "\n 3 : to list books from the library" +
-                    "\n 0 : to exit\n" +
-                    "\n Your choice: ");
+            System.out.println("""
+                    Main Menu. Choose an action.
+
+                     Press:\s
+                     1 : to add a book to the library
+                     2 : to delete a book from the library
+                     3 : to list books from the library
+                     0 : to exit
+
+                     Your choice:\s""");
             command = scanner.nextInt();
             switch (command) {
-                case 1:
-                    addBook(library);
-                    break;
-                case 2:
-                    removeBookFromLibrary(library);
-                    break;
-                case 3:
-                    listBooksFromLibrary(library);
-                    break;
-                case 0:
-                    System.exit(0);
-                    break;
+                case 1 -> addBook(library);
+                case 2 -> removeBookFromLibrary(library);
+                case 3 -> listBooksFromLibrary(library);
+                case 0 -> System.exit(0);
             }
         } while (command != 0);
         scanner.close();
